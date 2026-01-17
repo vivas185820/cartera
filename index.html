@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cartera Digital</title>
+<style>
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 420px;
+    margin: 40px auto;
+    background: #111827;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+input {
+    background: #1f2933;
+    color: white;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.card p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>💳 Cartera Digital</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre del titular">
+    <input type="text" id="numero" placeholder="Número de tarjeta">
+    <input type="text" id="direccion" placeholder="Dirección">
+    <input type="month" id="fecha">
+    <input type="password" id="cvv" placeholder="CVV">
+    <button onclick="guardar()">Guardar Tarjeta</button>
+
+    <div id="lista"></div>
+</div>
+
+<script>
+function guardar() {
+    const nombre = document.getElementById("nombre").value;
+    const numero = document.getElementById("numero").value;
+    const direccion = document.getElementById("direccion").value;
+    const fecha = document.getElementById("fecha").value;
+    const cvv = document.getElementById("cvv").value;
+
+    const tarjeta = `
+        <div class="card">
+            <p><b>Nombre:</b> ${nombre}</p>
+            <p><b>Número:</b> ${numero}</p>
+            <p><b>Dirección:</b> ${direccion}</p>
+            <p><b>Vence:</b> ${fecha}</p>
+            <p><b>CVV:</b> ${cvv}</p>
+        </div>
+    `;
+
+    document.getElementById("lista").innerHTML += tarjeta;
+}
+</script>
+
+</body>
+</html>
